@@ -1,8 +1,32 @@
-import { useState } from 'react';
+import {useEffect, useRef, useState } from 'react';
+
 import * as H from './headerStyle';
 
 export default function Header() {
-    const [dDown, setDDown] = useState(false)
+    const dropRef = useRef(null);
+    const [showmenu, setShowmenu] = useState(false);
+
+    function handleDropDown() {
+        setShowmenu(true);
+    }
+
+    function closeMenu(event) {
+        if (!dropRef.current.contains(event.target)) {
+            setShowmenu(false);
+        }
+    }
+
+
+    useEffect(() => {
+        if (showmenu === true) {
+            document.addEventListener('click', closeMenu);
+        }
+        return () => {
+            document.removeEventListener('click', closeMenu);
+        }
+
+    }, [showmenu]);
+
     return (
         <H.Wrap>
             <H.Container>
@@ -36,7 +60,7 @@ export default function Header() {
                     <H.SMenuWrap>
                         <H.NavList>
                             <H.NavItem>
-                                <H.DDownLink onClick={() => setDDown(!dDown)}>
+                                <H.DDownLink onClick={handleDropDown}>
                                     All Microsoft
 
                                 </H.DDownLink>
@@ -49,17 +73,17 @@ export default function Header() {
                         <H.Account />
                     </H.IconWrap>
                 </H.NavWrap>
-                { dDown && <H.DropDown>
+                {showmenu && <H.DropDown ref={dropRef}>
                     <H.DropList>
                         <span>Software</span>
                         <H.SubList>
-                        <H.SubItem><H.SubLink href="#!">Windows Apps</H.SubLink></H.SubItem>
-                        <H.SubItem><H.SubLink href="#!">OneDrive</H.SubLink></H.SubItem>
-                        <H.SubItem><H.SubLink href="#!">Outlook</H.SubLink></H.SubItem>
-                        <H.SubItem><H.SubLink href="#!">Skype</H.SubLink></H.SubItem>
-                        <H.SubItem><H.SubLink href="#!">OneNote</H.SubLink></H.SubItem>
-                        <H.SubItem><H.SubLink href="#!">Microsoft Teams</H.SubLink></H.SubItem>
-                        <H.SubItem><H.SubLink href="#!">Microsoft Edge</H.SubLink></H.SubItem >
+                            <H.SubItem><H.SubLink href="#!">Windows Apps</H.SubLink></H.SubItem>
+                            <H.SubItem><H.SubLink href="#!">OneDrive</H.SubLink></H.SubItem>
+                            <H.SubItem><H.SubLink href="#!">Outlook</H.SubLink></H.SubItem>
+                            <H.SubItem><H.SubLink href="#!">Skype</H.SubLink></H.SubItem>
+                            <H.SubItem><H.SubLink href="#!">OneNote</H.SubLink></H.SubItem>
+                            <H.SubItem><H.SubLink href="#!">Microsoft Teams</H.SubLink></H.SubItem>
+                            <H.SubItem><H.SubLink href="#!">Microsoft Edge</H.SubLink></H.SubItem >
                         </H.SubList>
                     </H.DropList>
                     <H.DropList>
