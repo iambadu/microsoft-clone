@@ -5,6 +5,7 @@ import * as H from './headerStyle';
 export default function Header() {
     const dropRef = useRef(null);
     const [showmenu, setShowmenu] = useState(false);
+    const [showsearch, setShowsearch] = useState(false);
 
     function handleDropDown() {
         setShowmenu(true);
@@ -31,6 +32,7 @@ export default function Header() {
         <H.Wrap>
             <H.Container>
                 <H.NavWrap>
+                    <H.Nav/>
                     <H.Logo href="/">
                         <img src="/img/logo.png" alt="" />
                     </H.Logo>
@@ -60,7 +62,7 @@ export default function Header() {
                     <H.SMenuWrap>
                         <H.NavList>
                             <H.NavItem>
-                                <H.DDownLink onClick={handleDropDown}>
+                                <H.DDownLink smenu={showmenu} onClick={handleDropDown}>
                                     All Microsoft
 
                                 </H.DDownLink>
@@ -68,11 +70,18 @@ export default function Header() {
                         </H.NavList>
                     </H.SMenuWrap>
                     <H.IconWrap>
-                        <H.Search />
+                        <H.Search onClick={()=> setShowsearch(true)} />
                         <H.Cart />
                         <H.Account />
                     </H.IconWrap>
                 </H.NavWrap>
+                {
+                    showsearch && <H.SearchWrap>
+                    <input type="text" name="" id="" />
+                    <H.SearchBtn onClick={() => setShowsearch(false)}>Cancel</H.SearchBtn>
+                    <H.Cancel onClick={() => setShowsearch(false)} />
+</H.SearchWrap>
+                    }
                 {showmenu && <H.DropDown ref={dropRef}>
                     <H.DropList>
                         <span>Software</span>
