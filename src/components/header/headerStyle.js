@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro'
 
 const mobsize = '950px';
+const bgColor = '#F3F4F6';
+const hamImg = '/img/nav.png';
+const cancImg = '/img/cancel.png';
 
 export const Wrap = styled.div`
 width:100%;
@@ -138,6 +141,7 @@ padding:8px 30px;
 font-size:14px;
 z-index: 1400;
 display:flex;
+cursor:pointer;
 align-items:center;
 justify-content:center;
 background:white;
@@ -154,15 +158,17 @@ display: none
 z-index: 1400;
 padding: 9px 15px!important;
 height:36px;
+cursor:pointer;
 margin-left: 5px;
-background-size: 24px!important;
+background-size: 20px!important;
 background: url('/img/cancel.png') no-repeat center center;
 `;
 export const Nav = styled(Icon)`
 @media (min-width: ${mobsize}) {
 display: none
 }
-background: url('/img/nav.png') no-repeat center center;
+
+background: ${props => props.show ? `url(${cancImg})` : `url(${hamImg})`} no-repeat center center;
 background-size:20px!important;
 `;
 export const Cart = styled(Icon)`
@@ -182,7 +188,7 @@ padding-right:20px;
 margin-right:15px;
 position:relative;
 cursor:pointer;
-background: ${props => props.smenu && '#F3F4F6'};
+background: ${props => props.smenu && bgColor};
 ::before{
 
     width:calc(100% - 26px)!important;
@@ -206,7 +212,7 @@ background: ${props => props.smenu && '#F3F4F6'};
 export const DropDown = styled.ul`
 position: relative;
 top:-7px;
-background: #F3F4F6;
+background: ${'#F3F4F6'};
 margin: 0;
 display:flex;
 padding:0;
@@ -241,10 +247,56 @@ export const SubItem = styled.li`
 list-style:none;
 `;
 
+export const MobiNav = styled.div`
+background: ${bgColor};
+transition: all .2s;
+width: 100%;
+padding: 8px 0;
+font-size:14px;
+`;
+export const MobiNavList = styled.ul`
+margin:0;
+padding:0;
+display:flex;
+flex-direction:column;
 
-
-
-
+`;
+export const MobiNavItem = styled.li`
+list-style:none;
+border-top: 1px solid #CECECE;
+`;
+export const MobiNavLink = styled.a`
+padding:15px  15px 15px 35px;
+display: block;
+`;
+export const MobiDrop = styled.div`
+list-style:none;
+position:relative;
+`;
+export const MobiTitle = styled.a`
+padding:15px  15px 15px 35px;
+display: block;
+position:relative;
+&::after {
+       position: absolute;
+    margin: auto;
+    top:50%;
+    right: 18px;
+    bottom:calc(50% + 2px) ;
+    content:"";
+    width: 8px;
+    height: 8px;
+    //rotate 45
+    transform:  ${props => props.drop ? 'rotate(225deg);' : 'rotate(45deg);'}
+    -ms-transform: ${props => props.drop ? 'rotate(225deg);' : 'rotate(45deg);'}
+    border-right: 2px solid #828385;
+    border-bottom: 2px solid #828385;
+}
+`;
+export const MbWrap = styled.ul`
+margin:0;
+padding-left:30px;
+`;
 
 
 
@@ -257,7 +309,7 @@ list-style:none;
 // 50
 // #F9FAFB
 // 100
-// #F3F4F6
+// ${'#F3F4F6')
 // 200
 // #E5E7EB
 // 300

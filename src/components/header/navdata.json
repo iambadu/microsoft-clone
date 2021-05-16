@@ -1,0 +1,33 @@
+{
+  "dropdown": [
+    {
+      "title": "Software",
+      "list": ["Windows Apps", "OneDrive","Outlook","Skype","OneNote","Microsoft Teams","Microsoft Edge"]
+    },
+    {
+      "title": "PCs & Devices",
+      "list": ["Computers", "Shop Xbox","Accessories","VR & mixed reality","Phones"]
+    },
+    {
+      "title": "Entertainment",
+      "list": ["Xbox Game Pass", "Xbox Live Gold","Xbox games","PC games","Windows digital games","Movies & TV"]
+    },
+    {
+        "title": "Business",
+        "list": ["Microsoft Azure", "Microsoft Dynamics 365","Microsoft 365","Data platform","Phones",
+            "Microsoft Advertising","Power Platform","Shop Business"]
+    },
+    {
+        "title": "Developer & IT",
+        "list": [".NET","Visual Studio","Windows Server","Windows Dev Center","Docs","Power Apps","HoloLens 2"]
+    },
+    {
+        "title": "Other",
+        "list": ["Microsoft Rewards","Free downloads & security","Education","Virtual workshops and training","Gift cards","Licensing","Microsoft Experience Center"]
+    }
+
+  ],
+  "nav": ["Microsoft 365", "Office", "Windows", "Surface", "Xbox", "Deals", "Support"]
+}
+
+

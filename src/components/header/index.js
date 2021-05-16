@@ -1,11 +1,34 @@
-import {useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import * as H from './headerStyle';
+import { nav, dropdown } from './navdata.json';
+
+export function MobileDrop({data}) {
+    const [mobdrop, setMobdrop] = useState(false);
+            return (
+                <div key={data.title}>
+                    <H.MobiNavItem><H.MobiTitle drop={mobdrop} onClick={() => setMobdrop(!mobdrop)} >{data.title}</H.MobiTitle>
+                    </H.MobiNavItem>
+                    { mobdrop && <H.MbWrap>
+                        {data.list.map((link) => {
+                            return (
+                                <H.MobiNavItem><H.MobiNavLink >{link}</H.MobiNavLink></H.MobiNavItem>
+                            )
+                        })}
+
+                    </H.MbWrap>}
+                </div>
+            )
+
+
+
+}
 
 export default function Header() {
     const dropRef = useRef(null);
     const [showmenu, setShowmenu] = useState(false);
     const [showsearch, setShowsearch] = useState(false);
+    const [mobshow, setMobshow] = useState(false);
 
     function handleDropDown() {
         setShowmenu(true);
@@ -27,134 +50,73 @@ export default function Header() {
         }
 
     }, [showmenu]);
-
     return (
         <H.Wrap>
             <H.Container>
                 <H.NavWrap>
-                    <H.Nav/>
+                    <H.Nav show={mobshow} onClick={() => setMobshow(!mobshow)} />
                     <H.Logo href="/">
                         <img src="/img/logo.png" alt="" />
                     </H.Logo>
                     <H.NavList>
-                        <H.NavItem>
-                            <H.NavLink href="/">Microsoft 365</H.NavLink>
-                        </H.NavItem>
-                        <H.NavItem>
-                            <H.NavLink href="/">Office</H.NavLink>
-                        </H.NavItem>
-                        <H.NavItem>
-                            <H.NavLink href="/">Windows</H.NavLink>
-                        </H.NavItem>
-                        <H.NavItem>
-                            <H.NavLink href="/">Surface</H.NavLink>
-                        </H.NavItem>
-                        <H.NavItem>
-                            <H.NavLink href="/">Xbox</H.NavLink>
-                        </H.NavItem>
-                        <H.NavItem>
-                            <H.NavLink href="/">Deals</H.NavLink>
-                        </H.NavItem>
-                        <H.NavItem>
-                            <H.NavLink href="/">Support</H.NavLink>
-                        </H.NavItem>
+                        {nav.map(list => {
+                            return (
+                                <H.NavItem>
+                                    <H.NavLink href="/">{list}</H.NavLink>
+                                </H.NavItem>
+                            )
+                        })}
                     </H.NavList>
                     <H.SMenuWrap>
                         <H.NavList>
                             <H.NavItem>
                                 <H.DDownLink smenu={showmenu} onClick={handleDropDown}>
                                     All Microsoft
-
                                 </H.DDownLink>
                             </H.NavItem>
                         </H.NavList>
                     </H.SMenuWrap>
                     <H.IconWrap>
-                        <H.Search onClick={()=> setShowsearch(true)} />
+                        <H.Search onClick={() => setShowsearch(true)} />
                         <H.Cart />
                         <H.Account />
                     </H.IconWrap>
                 </H.NavWrap>
-                {
-                    showsearch && <H.SearchWrap>
-                    <input type="text" name="" id="" />
-                    <H.SearchBtn onClick={() => setShowsearch(false)}>Cancel</H.SearchBtn>
-                    <H.Cancel onClick={() => setShowsearch(false)} />
-</H.SearchWrap>
-                    }
+                {showsearch && <H.SearchWrap>
+                        <input type="text" name="" id="" />
+                        <H.SearchBtn onClick={() => setShowsearch(false)}>Cancel</H.SearchBtn>
+                        <H.Cancel onClick={() => setShowsearch(false)} />
+                    </H.SearchWrap>
+                }
                 {showmenu && <H.DropDown ref={dropRef}>
-                    <H.DropList>
-                        <span>Software</span>
-                        <H.SubList>
-                            <H.SubItem><H.SubLink href="#!">Windows Apps</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">OneDrive</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Outlook</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Skype</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">OneNote</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Teams</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Edge</H.SubLink></H.SubItem >
-                        </H.SubList>
-                    </H.DropList>
-                    <H.DropList>
-                        <span>PCs & Devices</span>
-                        <H.SubList>
-                            <H.SubItem><H.SubLink href="#!">Computers</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Shop Xbox</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Accessories</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">VR & mixed reality</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Phones</H.SubLink></H.SubItem>
-                        </H.SubList>
-                    </H.DropList>
-                    <H.DropList>
-                        <span>Entertainment</span>
-                        <H.SubList>
-                            <H.SubItem><H.SubLink href="#!">Xbox Game Pass</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Xbox Live Gold</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Xbox games</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">PC games</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Windows digital games</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Movies & TV</H.SubLink></H.SubItem>
-                        </H.SubList>
-                    </H.DropList>
-                    <H.DropList>
-                        <span>Business</span>
-                        <H.SubList>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Azure</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Dynamics 365</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Microsoft 365</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Industry</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Data platform</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Advertising</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Power Platform</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Shop Business</H.SubLink></H.SubItem>
-                        </H.SubList>
-                    </H.DropList>
-                    <H.DropList>
-                        <span>Developer & IT</span>
-                        <H.SubList>
-                            <H.SubItem><H.SubLink href="#!">.NET</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Visual Studio</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Windows Server</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Windows Dev Center</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Docs</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Power Apps</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">HoloLens 2</H.SubLink></H.SubItem>
-                        </H.SubList>
-                    </H.DropList>
-                    <H.DropList>
-                        <span>Other</span>
-                        <H.SubList>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Rewards</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Free downloads & security</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Education</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Virtual workshops and training</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Gift cards</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Licensing</H.SubLink></H.SubItem>
-                            <H.SubItem><H.SubLink href="#!">Microsoft Experience Center</H.SubLink></H.SubItem>
-                        </H.SubList>
-                    </H.DropList>
+                    {dropdown.map((nav) => {
+                            return (
+                                <H.DropList>
+                                    <span>{nav.title}</span>
+                                    { nav.list.map(item => {
+                                        return (
+                                            <H.SubList>
+                                                <H.SubItem><H.SubLink href="#!">{item}</H.SubLink></H.SubItem>
+                                            </H.SubList>
+                                        )
+                                    })
+                                    }
+                                </H.DropList>
+                            )
+                        })}
                 </H.DropDown>}
             </H.Container>
+            {mobshow &&
+            <H.MobiNav>
+                <H.MobiNavList>
+                    {nav.map((item) => <H.MobiNavItem><H.MobiNavLink>{item}</H.MobiNavLink></H.MobiNavItem>)}
+                    <H.MobiDrop>
+                        {dropdown.map((item, i) => <MobileDrop key={i} data={item} /> )}
+                    </H.MobiDrop>
+                    <H.MobiNavItem><H.MobiNavLink>Microsoft 365</H.MobiNavLink></H.MobiNavItem>
+                </H.MobiNavList>
+            </H.MobiNav>
+            }
         </H.Wrap>
     )
 }
