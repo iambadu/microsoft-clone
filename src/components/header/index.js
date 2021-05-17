@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import * as H from './headerStyle';
+import * as H from './style/header';
 import { nav, dropdown } from './navdata.json';
 
 export function MobileDrop({data}) {

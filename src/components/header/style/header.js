@@ -287,8 +287,8 @@ position:relative;
     width: 8px;
     height: 8px;
     //rotate 45
-    transform:  ${props => props.drop ? 'rotate(225deg);' : 'rotate(45deg);'}
-    -ms-transform: ${props => props.drop ? 'rotate(225deg);' : 'rotate(45deg);'}
+    transform:  ${props => props.drop ? 'rotate(225deg)' : 'rotate(45deg)'};
+    -ms-transform: ${props => props.drop ? 'rotate(225deg)' : 'rotate(45deg)'};
     border-right: 2px solid #828385;
     border-bottom: 2px solid #828385;
 }

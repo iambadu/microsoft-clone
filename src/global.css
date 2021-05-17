@@ -18,6 +18,8 @@ html {
  */
 
 body {
+  font-size: 15px;
+  min-width: 320px;
   margin: 0;
   color: var(--txtcolor);
   font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Roboto,Helvetica,Arial,sans-serif;
@@ -39,6 +41,10 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+}
+
+p {
+  margin:0;
 }
 
 /* Grouping content
