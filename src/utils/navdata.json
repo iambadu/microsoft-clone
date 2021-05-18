@@ -1,0 +1,160 @@
+{
+  "dropdown": [
+    {
+      "title": "Software",
+      "list": [
+        "Windows Apps",
+        "OneDrive",
+        "Outlook",
+        "Skype",
+        "OneNote",
+        "Microsoft Teams",
+        "Microsoft Edge"
+      ]
+    },
+    {
+      "title": "PCs & Devices",
+      "list": [
+        "Computers",
+        "Shop Xbox",
+        "Accessories",
+        "VR & mixed reality",
+        "Phones"
+      ]
+    },
+    {
+      "title": "Entertainment",
+      "list": [
+        "Xbox Game Pass",
+        "Xbox Live Gold",
+        "Xbox games",
+        "PC games",
+        "Windows digital games",
+        "Movies & TV"
+      ]
+    },
+    {
+      "title": "Business",
+      "list": [
+        "Microsoft Azure",
+        "Microsoft Dynamics 365",
+        "Microsoft 365",
+        "Data platform",
+        "Phones",
+        "Microsoft Advertising",
+        "Power Platform",
+        "Shop Business"
+      ]
+    },
+    {
+      "title": "Developer & IT",
+      "list": [
+        ".NET",
+        "Visual Studio",
+        "Windows Server",
+        "Windows Dev Center",
+        "Docs",
+        "Power Apps",
+        "HoloLens 2"
+      ]
+    },
+    {
+      "title": "Other",
+      "list": [
+        "Microsoft Rewards",
+        "Free downloads & security",
+        "Education",
+        "Virtual workshops and training",
+        "Gift cards",
+        "Licensing",
+        "Microsoft Experience Center"
+      ]
+    }
+  ],
+  "nav": [
+    "Microsoft 365",
+    "Office",
+    "Windows",
+    "Surface",
+    "Xbox",
+    "Deals",
+    "Support"
+  ],
+
+  "footer": [
+    {
+      "title": "What's new",
+      "list": [
+        "Surface Laptop 4",
+        "Surface Laptop Go",
+        "Surface Go 2",
+        "Surface Pro X",
+        "Surface Duo",
+        "Microsoft 365",
+        "Windows 10 apps",
+        "HoloLens 2"
+      ]
+    },
+    {
+      "title": "Microsoft Store",
+      "list": [
+        "Account profile",
+        "Download Center",
+        "Microsoft Store support",
+        "Returns",
+        "Order tracking",
+        "Virtual workshops and training",
+        "Microsoft Store Promise",
+        "Financing"
+      ]
+    },
+    {
+      "title": "Education",
+      "list": [
+        "Microsoft in education",
+        "Office for students",
+        "Office 365 for schools",
+        "Deals for students & parents",
+        "Microsoft Azure in education"
+      ]
+    },
+    {
+      "title": "Enterprise",
+      "list": [
+        "Azure",
+        "AppSource",
+        "Automotive",
+        "Government",
+        "Healthcare",
+        "Manufacturing",
+        "Financial services",
+        "Retail"
+      ]
+    },
+    {
+      "title": "Developer",
+      "list": [
+        "Microsoft Visual Studio",
+        "Windows Dev Center",
+        "Developer Center",
+        "Microsoft developer program",
+        "Channel 9",
+        "Office Dev Center",
+        "Microsoft Garage"
+      ]
+    },
+    {
+      "title": "Company",
+      "list": [
+        "Careers",
+        "About Microsoft",
+        "Company news",
+        "Privacy at Microsoft",
+        "Investors",
+        "Diversity and inclusion",
+        "Accessibility",
+        "Security"
+      ]
+    }
+  ]
+}

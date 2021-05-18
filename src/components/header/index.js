@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import * as H from './style/header';
-import { nav, dropdown } from './navdata.json';
+import { nav, dropdown } from '../../utils/navdata.json';
 
 export function MobileDrop({data}) {
     const [mobdrop, setMobdrop] = useState(false);

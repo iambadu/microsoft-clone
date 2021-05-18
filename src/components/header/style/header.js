@@ -211,8 +211,10 @@ background: ${props => props.smenu && bgColor};
 
 export const DropDown = styled.ul`
 position: relative;
+z-index:5000;
+height:auto;
 top:-7px;
-background: ${'#F3F4F6'};
+background: #F3F4F6;
 margin: 0;
 display:flex;
 padding:0;
